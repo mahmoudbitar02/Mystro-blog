@@ -8,7 +8,7 @@ class Posts(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField(max_length=10000)
     image = models.ImageField(upload_to='posts/')
-    author = models.ForeignKey(User)
+    author = models.ForeignKey(User, related_name='post_author', on_delete=models.CASCADE)
     tags = TaggableManager()
     
     def __str__(self):
