@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from.models import Posts
 from .forms import PostForm
 
@@ -30,7 +30,7 @@ def create_post(request):
 def edit_post(request,id):
     post = Posts.objects.get(id=id)
     if request.method == 'POST':
-        form = PostForm(request.POST, request.FILES)
+        form = PostForm(request.POST, request.FILES, instance=post)
         if form.is_valid():
             myform = form.save(commit=False)
             myform.author = request.user
@@ -38,3 +38,8 @@ def edit_post(request,id):
     else:
         form = PostForm(instance=post)
     return render(request, 'edit.html', {'form':form})
+
+def delete_post(request,id):
+    post = Posts.objects.get(id=id)
+    post.delete()
+    return redirect('/blog')
