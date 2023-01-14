@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "taggit",
 
     "posts",
+    'mini',
 ]
 
 MIDDLEWARE = [

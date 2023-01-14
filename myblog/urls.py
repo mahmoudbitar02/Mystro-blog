@@ -21,6 +21,9 @@ from posts.views import post_list, post_detail, create_post, edit_post, delete_p
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+
+    
     path('blog/', post_list),
     path('blog/create', create_post),
     path('blog/<int:id>', post_detail),
