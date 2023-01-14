@@ -18,12 +18,14 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 from posts.views import post_list, post_detail, create_post, edit_post, delete_post
+from mini.views import home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', home),
 
 
-    
+
     path('blog/', post_list),
     path('blog/create', create_post),
     path('blog/<int:id>', post_detail),
