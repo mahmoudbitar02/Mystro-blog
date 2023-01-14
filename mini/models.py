@@ -22,7 +22,7 @@ SKILL_TYPE =(
 
 class Skills(models.Model):
     skill=models.CharField(max_length=50)
-    percentage=models.IntegerField()
+    percentage =models.IntegerField()
     type=models.CharField(max_length=50, choices= SKILL_TYPE)
 
     def __str__(self):
