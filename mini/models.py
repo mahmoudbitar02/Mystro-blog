@@ -38,6 +38,10 @@ class Education(models.Model):
     def __str__(self):
         return self.title
 
+
+    class Meta:
+        ordering = ('-year',)
+
 class Experience(models.Model):
     year=models.IntegerField()
     title=models.CharField(max_length=100)
@@ -46,6 +50,8 @@ class Experience(models.Model):
 
     def __str__(self):
         return self.title
+    class Meta:
+        ordering = ('-year',)
 
 
 class Service(models.Model):
@@ -53,6 +59,7 @@ class Service(models.Model):
     icon=models.CharField(max_length=20)
     title=models.CharField(max_length=100)
     description=models.CharField(max_length=300)
+    image=models.ImageField(upload_to='service_img/')
 
     def __strr__(self):
         return self.title
@@ -60,7 +67,7 @@ class Service(models.Model):
 
 class Projects(models.Model):
     name=models.CharField(max_length=100)
-    image=models.ImageField(upload_to='proje/')
+    #image=models.ImageField(upload_to='proje/')
     tags=models.CharField(max_length=100)
 
     def __str__(self):
